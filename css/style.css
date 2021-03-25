@@ -9,6 +9,14 @@
   -o-user-select: none;
   user-select: none;
 }
+button {
+  outline: none!important;
+  box-shadow: none!important;
+}
+button:focus {
+  outline: none!important;
+  box-shadow: none!important;
+}
 body {
   overflow-x: hidden;
 }
@@ -141,7 +149,7 @@ body {
 }
 /* End about */
 /* Start resume */
-#resume {
+#resume, #portfolio {
   background: url('../images/banner-2.jpg');
   background-position: center;
   background-repeat: no-repeat;
@@ -266,6 +274,69 @@ body {
   transform: scale(1.01);
 }
 /* End Skill */
+/* Portfolio */
+.card-portfolio {
+  box-shadow: none!important;
+}
+.bg-video-reshare {
+  background-image: url('../images/resharecms.png');
+}
+.bg-video-reshare-api {
+  background-image: url('../images/reshareapi.png');
+}
+.bg-video-real-api {
+  background-image: url('../images/realapi.jpg');
+}
+.bg-video-web-find-room {
+  background-image: url('../images/timtro.jpg');
+}
+.bg-video-nodeexpress {
+  background-image: url('../images/nodejsExpress.jpg');
+}
+.bg-video-admin_fr {
+  background-image: url('../images/admin_fr.png');
+}
+.bg-card-portfolio {
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg-parent-card-portfolio {
+  background:rgba(177, 147, 28, 0);
+  transition: all 0.3s ease;
+}
+.card-portfolio {
+  background: rgba(198, 198, 198, 0.3);
+  color: #fff;
+}
+.look__video, .look__video:hover {
+  border: none;
+  background: rgba(198, 198, 198, 0.3);
+}
+.look__video:focus {
+  box-shadow: none!important;
+  background: rgba(198, 198, 198, 0.3);
+}
+.input-custorm {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid #acacac;
+}
+input, input:focus, textarea, textarea:focus {
+  box-shadow: none!important;
+  outline: none!important;
+}
+/* End portfolio */
+/* Modal */
+.modal-content {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0;
+}
+.modal-content span {
+  color: #fff!important;
+}
+/* End Modal */
 @media only screen and (max-width: 767px) {
 	.navbar-nav.ml-auto {
 		background: rgba(0, 0, 0, 0.5);
