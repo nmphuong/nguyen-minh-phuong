@@ -1,16 +1,13 @@
 <?php
-if(isset( $_POST['name']))
-$name = $_POST['name'];
-if(isset( $_POST['email']))
-$email = $_POST['email'];
-if(isset( $_POST['message']))
-$message = $_POST['message'];
-if(isset( $_POST['subject']))
-$subject = $_POST['subject'];
-
-$content="From: $name \n Email: $email \n Message: $message";
-$recipient = "youremail@here.com";
-$mailheader = "From: $email \r\n";
-mail($recipient, $subject, $content, $mailheader) or die("Error!");
-echo "Email sent!";
+if(isset($_POST['message'])){
+    $to      = 'nguyenminhphuong25111999@gmail.com';
+    $subject = $_POST['subject']; 
+    $message = $_POST['message']; 
+    $headers = "From: ".$_POST['name']." <".$_POST['email'].">\r\n"; $headers = "Reply-To: ".$_POST['email']."\r\n"; 
+    $headers = "Content-type: text/html; charset=iso-8859-1\r\n";
+    'X-Mailer: PHP/' . phpversion();
+    if(mail($to, $subject, $message, $headers)) echo json_encode(['success'=>true]); 
+    else echo json_encode(['success'=>false]);
+    exit;
+ }
 ?>

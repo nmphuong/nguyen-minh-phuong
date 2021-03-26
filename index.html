@@ -13,6 +13,11 @@
 </head>
 
 <body>
+  <div class="position-fixed scroll-top">
+    <a href="#home">
+      <i class="fas fa-arrow-circle-up"></i>
+    </a>
+  </div>
   <!-- Start navbar -->
   <nav class="__nav-custorm navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
@@ -45,6 +50,7 @@
     </div>
   </nav>
   <!-- End navbar -->
+
   <!-- Start home -->
   <div class="home position-relative w-100" id="home">
     <div class="max-width position-absolute">
@@ -59,6 +65,7 @@
     </div>
   </div>
   <!-- End home -->
+
   <!-- Start about -->
   <section class="w-100 about py-5" id="about">
     <div class="container">
@@ -94,6 +101,19 @@
               <div class="key p-2"><i class="fas fa-map-marker-alt"></i>&nbsp;Address:</div><span class="value p-2">Quận
                 Gò Vấp, Tp.HCM</span>
             </li>
+            <li class="d-flex mb-5 contact-icon">
+              <a data-aos="fade-up" data-aos-duration="500" href="https://www.facebook.com/NMP2511">
+                <i class="fab fa-facebook"></i>
+              </a>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <a data-aos="fade-up" data-aos-duration="600" href="https://github.com/nmphuong">
+                <i class="fab fa-github"></i>
+              </a>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <a data-aos="fade-up" data-aos-duration="700" href="https://join.skype.com/invite/diugTTrJ7OXc">
+                <i class="fab fa-skype"></i>
+              </a>
+            </li>
           </ul>
           <!-- <div class="text h2">I'm Phuong and I'm a <span class="typing-2"></span></div> -->
         </div>
@@ -101,6 +121,7 @@
     </div>
   </section>
   <!-- End about -->
+
   <!-- Start resume -->
   <div class="resume py-5" id="resume">
     <div class="container">
@@ -171,6 +192,7 @@
     </div>
   </div>
   <!-- End resume -->
+
   <!-- Start skills -->
   <div class="skills py-5" id="skills">
     <div class="container">
@@ -344,6 +366,7 @@
     </div>
   </div>
   <!-- End skills -->
+
   <!-- Start portfolio -->
   <div class="portfolio py-5" id="portfolio">
     <div class="container">
@@ -560,6 +583,7 @@
   </div>
   <!-- End Modal -->
   <!-- End portfolio -->
+
   <!-- Start contact -->
   <div class="contact py-5" id="contact">
     <div class="container">
@@ -572,7 +596,7 @@
         <div class="col-lg-12">
           <div class="row p-0 m-0">
             <div class="col-md-12 mb-md-0 mb-5">
-              <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+              <form id="contact-form" name="contact-form" action="send.php" method="POST">
                 <div class="row">
                   <div class="col-md-6 pb-2">
                     <div class="md-form mb-0">
@@ -600,10 +624,10 @@
                     </div>
                   </div>
                 </div>
+                <div class="text-center text-md-left">
+                  <button class="btn btn-primary text-white" type="submit"><i class="fas fa-paper-plane"></i></button>
+                </div>
               </form>
-              <div class="text-center text-md-left">
-                <a class="btn btn-primary text-white" onclick="document.getElementById('contact-form').submit();">Send</a>
-              </div>
               <div class="status"></div>
             </div>
           </div>
@@ -612,7 +636,20 @@
     </div>
   </div>
   <!-- End contact -->
+
   <!-- Footer -->
+  <footer class="mainfooter" role="contentinfo">
+    <div class="footer-middle">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 copy">
+            <p class="text-center m-0 py-5">&copy; Copyright 2021 - Nguyen Minh Phuong.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
   <script src="js/jquery-3.3.1.slim.min.js"></script>
   <script src="js/typed.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -621,6 +658,27 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script>
+    $(document).ready(function() {
+    $("#contact-form").on('submit', function(event) {
+        event.preventDefault(); 
+        var formData = $(this).serialize();
+        $.ajax({
+            type: 'POST',
+            url: 'send.php',
+            dataType: "json",
+            data: formData,
+            success: function(response) { 
+                alert(response.success); 
+            },
+            error: function(xhr, status, error){
+                console.log(xhr); 
+            }
+        });
+    });
+});
   </script>
   <script src="js/script.js"></script>
   <script>

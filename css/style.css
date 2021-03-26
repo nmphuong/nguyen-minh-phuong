@@ -2,12 +2,6 @@
 * {
   scroll-behavior: smooth;
   font-family: Arial, Helvetica, sans-serif;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
 }
 button {
   outline: none!important;
@@ -19,6 +13,20 @@ button:focus {
 }
 body {
   overflow-x: hidden;
+}
+.scroll-top {
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  display: none;
+}
+.sroll-top-show {
+  display: block!important;
+}
+.scroll-top.sroll-top-show a {
+  cursor: pointer;
+  color: rgb(255, 0, 0);
+  font-size: 3em;
 }
 /* Start navbar */
 .navbar-nav a {
@@ -57,7 +65,9 @@ body {
 	color: rgb(255, 255, 255);
 }
 .bg-sticky {
-  background: rgba(177, 147, 28, 1)!important;
+  background: #16222A;
+  background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
+  background: linear-gradient(59deg, #3A6073, #16222A);
   color: #fff!important;
 }
 /* End navbar */
@@ -147,9 +157,16 @@ body {
   color: rgb(255, 0, 234);
   align-items: center;
 }
+.contact-icon {
+  border-bottom: none!important;
+  font-size: 2em;
+}
+.contact-icon a{
+  color: #000;
+}
 /* End about */
 /* Start resume */
-#resume, #portfolio {
+#resume, #portfolio, footer {
   background: url('../images/banner-2.jpg');
   background-position: center;
   background-repeat: no-repeat;
@@ -337,9 +354,15 @@ input, input:focus, textarea, textarea:focus {
   color: #fff!important;
 }
 /* End Modal */
+/* Footer */
+footer {
+  color: white;
+  margin-top:100px;
+}
+/* End Footer */
 @media only screen and (max-width: 767px) {
 	.navbar-nav.ml-auto {
-		background: rgba(0, 0, 0, 0.5);
+		background: rgba(100, 25, 25, 0.5);
 	}
 	.navbar-nav a {
 		font-size: 14px;
